@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>NoCode_Tool</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+#editor {
+  border: 2px solid gray;
+  text-align: center;
+}
+#images {
+  display: flex;
+  
+ 
+ 
+}
+
+.myemoji {  /* Imgae in the tool */
+  width: 90px;
+  height: 100px;
+  
+}
+
+.num {
+  background-color: black;
+  color: white;
+  width: 15px;
+  padding-top: 40px;
+  padding-left: 5px;
+}
+#editor {
+  width: 544px;
+}
+</style>
+</head>
+<body>
+
+<p>Dont select two deffirent color from </p>
+<div id="myinputs">
+
+  <span id="mtext">Enter / change the Text </span>
+  <input id="text" type="text" value="" > 
+   <br /> <br />
+   
+  <span id="mycolor">Enter Text Color Name  </span>
+  <input id="color" type="text" value="" > 
+   <br /> <br />
+
+  <span id="RGB11" title="rgbForm: 12 150 18">Enter Color in rgp   form</span>
+   <input id="myRGB" type="text" value="" ><input id="getC" type="checkbox" name="getColor"> <span style="font-   size:12px;">rgbForm: 12 150 18</span>
+   <br /> <br />
+
+   <span id="mysize">Enter Font Size in pixel</span>
+   <input id="size" type="text" value="" >
+   <br /> <br />
+
+   <span id="mypadding">Enter Padding or.Width</span>
+   <input id="padding" type="text" value="" >
+  <br /> <br />
+
+   <span id="mbackground">Enter BackgroundColor</span>
+   <input id="background" type="text" value="" >
+  <br /> <br />
+
+</div>
+
+
+
+<div id="images">
+ <span class="num">0</span><img class="myemoji" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQToA9s3Y6-r1AO4iK79QL6hpW_6mlFDevRGvbg7Y7nc_UG2coM"
+onclick="emoji()"  width="100" height="100">
+ <span class="num">1</span><img class="myemoji" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_mzYN7uNXzHK9efTWfR4npLuQzoCiVDhtWzGX4XHvHPa61S2x" width="100" height="100" alt="photo">
+ <span class="num">2</span><img class="myemoji" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXIHr_xxMF2fRdIAFYyT-Wd-bPz3g7NJJYh2DXa5v3YhthT70uzQ" width="100" height="100" alt="photo">
+ <span class="num">3</span><img class="myemoji" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ_4laacMsDWo-JEx1-860jS96fhT4OoWBTXgJZtGCQfu1CVW-" width="100" height="100" alt="photo">
+ <span class="num">4</span><img class="myemoji" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2q83ezASAW2T1GGUMg1-TlTxuQ5vfaRh7faj7RtGN_Ah-FKxVA" width="100" height="100" alt="photo">
+ 
+ 
+</div>
+<br />
+<span id="imgeNumber"> Enter an image Number</span>
+<input type="text" id="func" value=""> <span style="font-size:12px;">5 for hide image</span>
+
+
+
+<br />
+
+<button id="myButton" onclick="myFunction()">Run >></button> <br /><br />
+  <div id="editor">
+  <div id="my">
+   <p id="demo">Hello World</p>
+   <img id="result_img" src="" alt="" width="200" height="200" > </div>
+  </div>  
+<script>
+
+function myFunction() {
+
+   list = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQToA9s3Y6-r1AO4iK79QL6hpW_6mlFDevRGvbg7Y7nc_UG2coM", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_mzYN7uNXzHK9efTWfR4npLuQzoCiVDhtWzGX4XHvHPa61S2x","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXIHr_xxMF2fRdIAFYyT-Wd-bPz3g7NJJYh2DXa5v3YhthT70uzQ","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ_4laacMsDWo-JEx1-860jS96fhT4OoWBTXgJZtGCQfu1CVW-","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk2q83ezASAW2T1GGUMg1-TlTxuQ5vfaRh7faj7RtGN_Ah-FKxVA"];
+   
+   //inputs values
+  
+    var x = document.getElementById("color"); /*color*/
+    var i = document.getElementById("size");  /*font-size*/
+    var t = document.getElementById("myRGB");  /*rgb-color*/
+    var y = document.getElementById("demo"); 
+    var padd = document.getElementById("padding"); 
+    var a = document.getElementById("getC");
+    var last = document.getElementById("text");
+    var backColor = document.getElementById("background");
+    
+    
+    
+    
+    
+    if (x.value != "") {
+   document.getElementById("demo").style.color = x.value;
+   } 
+
+   else if (a.checked == true ) {
+    document.getElementById("demo").style.color = "rgb(" + t.value + ")";
+    }  if (a.value !="" && a.checked == true)   {
+    document.getElementById("demo").style.color = "rgb(" + t.value + ")";
+    }
+   document.getElementById("demo").style.fontSize = i.value + "px";
+     document.getElementById("demo").innerHTML = last.value;
+     
+     document.getElementById("editor").style.background = backColor.value;
+     
+     document.getElementById("editor").style.padding = padd.value + "px";
+  
+  
+  
+  /* select images */ 
+
+     ifunc = document.getElementById("func");
+ tet = document.getElementById("func").value;
+ document.getElementById("result_img").src = list[tet];
+ 
+ if (tet == 5) {
+ document.getElementById("result_img").display = "none";
+
+
+}
+ 
+
+}
+
+/*
+function toggle() {  
+  
+  
+  var x = document.getElementById("images");  
+         
+  
+  var y = document.getElementById("myemoji");
+  var z = document.getElementById("images");
+  
+  
+  if (x.style.display === "block") {
+    x.style.display = "none";    
+    
+  }  else if (x.style.display === "none" ) { 
+    x.style.display = "block";  
+    
+ 
+  
+  } else {
+    x.style.display = "block";   
+    
+  }
+}
+
+*/
+
+
+
+
+</script>
+
+</body>
+</html>
